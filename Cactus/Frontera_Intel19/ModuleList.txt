@@ -1,0 +1,7 @@
+Currently Loaded Modules:
+  1) intel/19.1.1    7) pmix/3.1.4     13) ooops/1.4
+  2) impi/19.0.9     8) hwloc/1.11.12  14) boost/1.72
+  3) git/2.24.1      9) xalt/2.10.34   15) gsl/2.6
+  4) autotools/1.2  10) TACC           16) fftw3/3.3.10
+  5) python3/3.7.0  11) papi/5.7.0
+  6) cmake/3.24.2   12) hdf5/1.10.4
