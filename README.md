@@ -1,2 +1,2 @@
-# Simfactory_files
-Files needed to configure Cactus through Simfactory on a bunch of different machines
+# CompilingCactus
+Instructions and files needed to configure Cactus and CactusAMReX on a bunch of different machines
