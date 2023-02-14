@@ -78,3 +78,27 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      ```
      ./simfactory/bin/sim build ET_2022_11_CarpetX_GPU -j8 --optionlist /usr/carpetx-spack/local-gpu.cfg --thornlist thornlists/carpetx.th
      ```
+3. If you want to checkout the TOV solver thorn from Jay Kalinani's fork of CactusAMReX, do the following:
+   ```
+   cd repos
+   mkdir TOVSolver
+   cd TOVSolver
+   git init
+   git remote add -f origin
+   git remote add -f origin https://bitbucket.org/jaykalinani/cactusamrex
+   git config core.sparseCheckout true
+   echo "TOVSolver" >> .git/info/sparse-checkout
+   git pull origin master
+   cd ../../arrangements
+   mkdir TOVSolver
+   cd TOVSolver
+   ln -s ../../repos/TOVSolver/TOVSolver TOVSolver
+   ```
+   Then edit the thornlist to compile the thorn
+   ```
+   # Private thorns
+   !TARGET   = $ARR
+   !TYPE     = ignore
+   !CHECKOUT =
+   TOVSolver/TOVSolver
+   ```
