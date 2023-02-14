@@ -48,7 +48,7 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      cd ET_2022_11_CarpetX_CPU
      curl -kLO https://raw.githubusercontent.com/gridaphobe/CRL/ET_2022_11/GetComponents
      chmod +x GetComponents
-     ./GetComponents https://bitbucket.org/eschnett/cactusamrex/raw/master/azure-pipelines/carpetx.th
+     ./GetComponents --parallel --no-shallow https://bitbucket.org/eschnett/cactusamrex/raw/master/azure-pipelines/carpetx.th
      cd Cactus
      ./simfactory/bin/sim setup-silent
      ```
