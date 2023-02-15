@@ -90,11 +90,7 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      cd Cactus
      ./simfactory/bin/sim setup-silent
      ```
-     Possibly edit the local definitions
-     ```
-     vim simfactory/etc/defs.local.ini
-     ```
-     with
+     Possibly edit `simfactory/etc/defs.local.ini` like this
      ```
      [default]
      user          = lorenzo
@@ -125,9 +121,14 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      cd Cactus
      ./simfactory/bin/sim setup-silent
      ```
-     Possibly edit the local definitions
+     Possibly edit `simfactory/etc/defs.local.ini` like this
      ```
-     vim simfactory/etc/defs.local.ini
+     [default]
+     user          = lorenzo
+     email         = lorenzo.ennoggi@gmail.com
+     allocation    = NO_ALLOCATION
+     basedir       = /home/lorenzo/Simulations
+     sourcebasedir = /home/lorenzo/ET_2022_11_CarpetX_GPU
      ```
      Build
      ```
@@ -156,7 +157,7 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
    cd TOVSolver
    ln -s ../../repos/TOVSolver/TOVSolver TOVSolver
    ```
-   Then edit the thornlist to compile the thorn
+   Then edit the `Cactus/thornlists/carpetx.th` to compile the thorn
    ```
    # Private thorns
    !TARGET   = $ARR
