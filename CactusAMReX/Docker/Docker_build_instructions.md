@@ -78,13 +78,7 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      ```
      after logging out of it if you started it using `docker exec` rather than `docker attach`
 
-3. Configure git globally to be able to generate the git source tree for Cactus in the next step
-   ```
-   git config --global email "you@example.com"
-   git config --global name "Name Surname"
-   ```
-
-4. Build Cactus
+3. Build Cactus
    - CPU build
      ```
      mkdir ET_2022_11_CarpetX_CPU
@@ -135,7 +129,7 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      git config --local name "Name Surname" 
      ```
 
-5. If you want to checkout the TOV solver thorn from Jay Kalinani's fork of CactusAMReX, do the following:
+4. If you want to checkout the TOV solver thorn from Jay Kalinani's fork of CactusAMReX, do the following:
    ```
    cd repos
    mkdir TOVSolver
@@ -158,4 +152,12 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
    !TYPE     = ignore
    !CHECKOUT =
    TOVSolver/TOVSolver
+   ```
+
+5. Edit `simfactory/mdb/machines/generic.ini` in order to match the architecture of your machine, e.g.
+   ```
+   ppn             = 8
+   max-num-threads = 8
+   num-threads     = 1
+   nodes           = 1
    ```
