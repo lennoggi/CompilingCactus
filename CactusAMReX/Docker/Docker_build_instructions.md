@@ -81,6 +81,7 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
 3. Build Cactus
    - CPU build
      ```
+     cd
      mkdir ET_2022_11_CarpetX_CPU
      cd ET_2022_11_CarpetX_CPU
      curl -kLO https://raw.githubusercontent.com/gridaphobe/CRL/ET_2022_11/GetComponents
@@ -106,6 +107,7 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
 
    - GPU build
      ```
+     cd
      mkdir ET_2022_11_CarpetX_GPU
      cd ET_2022_11_CarpetX_GPU
      curl -kLO https://raw.githubusercontent.com/gridaphobe/CRL/ET_2022_11/GetComponents
