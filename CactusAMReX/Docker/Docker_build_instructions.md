@@ -147,7 +147,6 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
    mkdir TOVSolver
    cd TOVSolver
    git init
-   git remote add -f origin
    git remote add -f origin https://bitbucket.org/jaykalinani/cactusamrex
    git config core.sparseCheckout true
    echo "TOVSolver" >> .git/info/sparse-checkout
