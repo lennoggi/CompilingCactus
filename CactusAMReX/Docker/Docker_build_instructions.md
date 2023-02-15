@@ -1,6 +1,6 @@
 # Docker basics
-See https://docs.docker.com/get-started for a thorough introduction to Docker. What follows is a minimal set of instructions to using Docker.
-**NOTE** All the following commands may need root permissions to be executed (i.e. `sudo` is needed), depending on the host machine setup
+See https://docs.docker.com/get-started for a thorough introduction to Docker. What follows is a minimal set of instructions to get you started with it.
+**NOTE** All the following commands may need root permissions to be executed (i.e. `sudo` is needed), depending on the host machine setup. In order to avoid that, follow the instructions at https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user. You may need to log out and log back in and possibly restart your machine for the changes to take place.
 - Pulling an image
   ```
   docker pull <image_name>
@@ -35,8 +35,6 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
   docker image rm <image_ID>
   ```
 
-# Running Docker as non-root user
-Depending on the machine and/or on the Unix distribution, Docker may require root privileges to run. In order to avoid that, follow the instructions at https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user. You may need to log out and log back in and possibly restart your machine for the changes to take place.
 
 # Setting up CactusAMReX using Steve Brandt's Docker image
 1. Pull and run Steve's image from https://hub.docker.com/r/stevenrbrandt/etworkshop with
