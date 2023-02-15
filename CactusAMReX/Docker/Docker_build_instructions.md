@@ -94,6 +94,15 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      ```
      vim simfactory/etc/defs.local.ini
      ```
+     with
+     ```
+     [default]
+     user          = lorenzo
+     email         = lorenzo.ennoggi@gmail.com
+     allocation    = NO_ALLOCATION
+     basedir       = /home/lorenzo/Simulations
+     sourcebasedir = /home/lorenzo/ET_2022_11_CarpetX_CPU
+     ```
      Build
      ```
      ./simfactory/bin/sim build ET_2022_11_CarpetX_CPU -j8 --optionlist /usr/carpetx-spack/local-cpu.cfg --thornlist thornlists/carpetx.th
@@ -101,8 +110,8 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      There might still be problems generating the git source tree for Cactus. In this case, do
      ```
      cd configs/ET_2022_11_CarpetX_CPU/configjar.git
-     git config --local email "you@example.com"
-     git config --local name "Name Surname" 
+     git config --local email "lorenzo.ennoggi@gmail.com"
+     git config --local name "Lorenzo Ennoggi" 
      ```
 
    - GPU build
@@ -127,8 +136,8 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      There might still be problems generating the git source tree for Cactus. In this case, do
      ```
      cd configs/ET_2022_11_CarpetX_GPU/configjar.git
-     git config --local email "you@example.com"
-     git config --local name "Name Surname" 
+     git config --local email "lorenzo.ennoggi@gmail.com"
+     git config --local name "Lorenzo Ennoggi"  
      ```
 
 4. If you want to checkout the TOV solver thorn from Jay Kalinani's fork of CactusAMReX, do the following:
