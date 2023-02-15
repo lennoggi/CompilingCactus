@@ -1,6 +1,8 @@
 # Docker basics
 See https://docs.docker.com/get-started for a thorough introduction to Docker. What follows is a minimal set of instructions to get you started with it.
+
 **NOTE** All the following commands may need root permissions to be executed (i.e. `sudo` is needed), depending on the host machine setup. In order to avoid that, follow the instructions at https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user. You may need to log out and log back in and possibly restart your machine for the changes to take place.
+
 - Pulling an image
   ```
   docker pull <image_name>
@@ -36,12 +38,14 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
   ```
 
 
+
 # Setting up CactusAMReX using Steve Brandt's Docker image
 1. Pull and run Steve's image from https://hub.docker.com/r/stevenrbrandt/etworkshop with
    ```
    docker pull stevenrbrandt/etworkshop
    docker run -ti -p 8888:8888 stevenrbrandt/etworkshop bash
    ```
+
 2. Once inside the container, setup a non-root user. This is good practice in general and also prevents `mpirun` and similar commands to complain about running as root.
    - Add the new user
      ```
@@ -73,7 +77,14 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      docker stop <container_id>
      ```
      after logging out of it if you started it using `docker exec` rather than `docker attach`
-3. Build Cactus
+
+3. Configure git globally to be able to generate the git source tree for Cactus in the next step
+   ```
+   git config --global email "you@example.com"
+   git config --global name "Name Surname"
+   ```
+
+4. Build Cactus
    - CPU build
      ```
      mkdir ET_2022_11_CarpetX_CPU
@@ -92,6 +103,13 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      ```
      ./simfactory/bin/sim build ET_2022_11_CarpetX_CPU -j8 --optionlist /usr/carpetx-spack/local-cpu.cfg --thornlist thornlists/carpetx.th
      ```
+     There might still be problems generating the git source tree for Cactus. In this case, do
+     ```
+     cd configs/ET_2022_11_CarpetX_CPU/configjar.git
+     git config --local email "you@example.com"
+     git config --local name "Name Surname" 
+     ```
+
    - GPU build
      ```
      mkdir ET_2022_11_CarpetX_GPU
@@ -110,8 +128,14 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      ```
      ./simfactory/bin/sim build ET_2022_11_CarpetX_GPU -j8 --optionlist /usr/carpetx-spack/local-gpu.cfg --thornlist thornlists/carpetx.th
      ```
+     There might still be problems generating the git source tree for Cactus. In this case, do
+     ```
+     cd configs/ET_2022_11_CarpetX_GPU/configjar.git
+     git config --local email "you@example.com"
+     git config --local name "Name Surname" 
+     ```
 
-4. If you want to checkout the TOV solver thorn from Jay Kalinani's fork of CactusAMReX, do the following:
+5. If you want to checkout the TOV solver thorn from Jay Kalinani's fork of CactusAMReX, do the following:
    ```
    cd repos
    mkdir TOVSolver
