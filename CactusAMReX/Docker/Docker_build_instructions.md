@@ -106,8 +106,8 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      There might still be problems generating the git source tree for Cactus. In this case, do
      ```
      cd configs/ET_2022_11_CarpetX_CPU/configjar.git
-     git config --local email "lorenzo.ennoggi@gmail.com"
-     git config --local name "Lorenzo Ennoggi" 
+     git config --local user.email "lorenzo.ennoggi@gmail.com"
+     git config --local user.name "Lorenzo Ennoggi" 
      ```
 
    - GPU build
@@ -137,8 +137,8 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      There might still be problems generating the git source tree for Cactus. In this case, do
      ```
      cd configs/ET_2022_11_CarpetX_GPU/configjar.git
-     git config --local email "lorenzo.ennoggi@gmail.com"
-     git config --local name "Lorenzo Ennoggi"  
+     git config --local user.email "lorenzo.ennoggi@gmail.com"
+     git config --local user.name "Lorenzo Ennoggi"  
      ```
 
 4. If you want to checkout the TOV solver thorn from Jay Kalinani's fork of CactusAMReX, do the following:
