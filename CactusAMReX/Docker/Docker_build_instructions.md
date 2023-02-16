@@ -100,7 +100,7 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      basedir       = /home/lorenzo/Simulations
      sourcebasedir = /home/lorenzo/ET_2022_11_CarpetX_CPU
      ```
-     If you want to checkout the TOV solver thorn from Jay Kalinani's fork of CactusAMReX, do the following:
+     If you want to checkout the TOV solver thorn from [Jay Kalinani's fork of CactusAMReX](https://bitbucket.org/jaykalinani/cactusamrex), do the following:
      ```
      cd repos
      mkdir TOVSolver
@@ -156,7 +156,7 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      basedir       = /home/lorenzo/Simulations
      sourcebasedir = /home/lorenzo/ET_2022_11_CarpetX_GPU
      ```
-     If you want to checkout the TOV solver thorn from Jay Kalinani's fork of CactusAMReX, do the following:
+     If you want to checkout the TOV solver thorn from [Jay Kalinani's fork of CactusAMReX](https://bitbucket.org/jaykalinani/cactusamrex), do the following:
      ```
      cd repos
      mkdir TOVSolver
