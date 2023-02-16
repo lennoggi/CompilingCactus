@@ -79,7 +79,8 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      after logging out of it if you started it using `docker exec` rather than `docker attach`
 
 3. Build Cactus
-   - CPU build
+   - **CPU build**
+     ---
      ```
      cd
      mkdir ET_2022_11_CarpetX_CPU
@@ -99,18 +100,43 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      basedir       = /home/lorenzo/Simulations
      sourcebasedir = /home/lorenzo/ET_2022_11_CarpetX_CPU
      ```
+     If you want to checkout the TOV solver thorn from Jay Kalinani's fork of CactusAMReX, do the following:
+     ```
+     cd repos
+     mkdir TOVSolver
+     cd TOVSolver
+     git init
+     git remote add -f origin https://bitbucket.org/jaykalinani/cactusamrex
+     git config core.sparseCheckout true
+     echo "TOVSolver" >> .git/info/sparse-checkout
+     git pull origin master
+     cd ../../arrangements
+     mkdir TOVSolver
+     cd TOVSolver
+     ln -s ../../repos/TOVSolver/TOVSolver TOVSolver
+     cd ../..
+     ```
+     Then edit the `Cactus/thornlists/carpetx.th` to compile the thorn
+     ```
+     # Private thorns
+     !TARGET   = $ARR
+     !TYPE     = ignore
+     !CHECKOUT =
+     TOVSolver/TOVSolver
+     ```
      Build
      ```
      ./simfactory/bin/sim build ET_2022_11_CarpetX_CPU -j8 --optionlist /usr/carpetx-spack/local-cpu.cfg --thornlist thornlists/carpetx.th
      ```
-     There might still be problems generating the git source tree for Cactus. In this case, do
+     There might be problems generating the git source tree for Cactus. In this case, do
      ```
      cd configs/ET_2022_11_CarpetX_CPU/configjar.git
      git config --local user.email "lorenzo.ennoggi@gmail.com"
      git config --local user.name "Lorenzo Ennoggi" 
      ```
 
-   - GPU build
+   - **GPU build**
+     ---
      ```
      cd
      mkdir ET_2022_11_CarpetX_GPU
@@ -130,42 +156,42 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      basedir       = /home/lorenzo/Simulations
      sourcebasedir = /home/lorenzo/ET_2022_11_CarpetX_GPU
      ```
+     If you want to checkout the TOV solver thorn from Jay Kalinani's fork of CactusAMReX, do the following:
+     ```
+     cd repos
+     mkdir TOVSolver
+     cd TOVSolver
+     git init
+     git remote add -f origin https://bitbucket.org/jaykalinani/cactusamrex
+     git config core.sparseCheckout true
+     echo "TOVSolver" >> .git/info/sparse-checkout
+     git pull origin master
+     cd ../../arrangements
+     mkdir TOVSolver
+     cd TOVSolver
+     ln -s ../../repos/TOVSolver/TOVSolver TOVSolver
+     cd ../..
+     ```
+     Then edit the `Cactus/thornlists/carpetx.th` to compile the thorn
+     ```
+     # Private thorns
+     !TARGET   = $ARR
+     !TYPE     = ignore
+     !CHECKOUT =
+     TOVSolver/TOVSolver
+     ```
      Build
      ```
      ./simfactory/bin/sim build ET_2022_11_CarpetX_GPU -j8 --optionlist /usr/carpetx-spack/local-gpu.cfg --thornlist thornlists/carpetx.th
      ```
-     There might still be problems generating the git source tree for Cactus. In this case, do
+     There might be problems generating the git source tree for Cactus. In this case, do
      ```
      cd configs/ET_2022_11_CarpetX_GPU/configjar.git
      git config --local user.email "lorenzo.ennoggi@gmail.com"
      git config --local user.name "Lorenzo Ennoggi"  
      ```
 
-4. If you want to checkout the TOV solver thorn from Jay Kalinani's fork of CactusAMReX, do the following:
-   ```
-   cd repos
-   mkdir TOVSolver
-   cd TOVSolver
-   git init
-   git remote add -f origin https://bitbucket.org/jaykalinani/cactusamrex
-   git config core.sparseCheckout true
-   echo "TOVSolver" >> .git/info/sparse-checkout
-   git pull origin master
-   cd ../../arrangements
-   mkdir TOVSolver
-   cd TOVSolver
-   ln -s ../../repos/TOVSolver/TOVSolver TOVSolver
-   ```
-   Then edit the `Cactus/thornlists/carpetx.th` to compile the thorn
-   ```
-   # Private thorns
-   !TARGET   = $ARR
-   !TYPE     = ignore
-   !CHECKOUT =
-   TOVSolver/TOVSolver
-   ```
-
-5. Edit `simfactory/mdb/machines/generic.ini` in order to match the architecture of your machine, e.g.
+4. Edit `simfactory/mdb/machines/generic.ini` in order to match the architecture of your machine, e.g.
    ```
    ppn             = 8
    max-num-threads = 8
