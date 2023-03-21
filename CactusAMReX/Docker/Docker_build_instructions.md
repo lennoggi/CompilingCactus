@@ -87,7 +87,8 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      cd ET_2022_11_CarpetX_CPU
      curl -kLO https://raw.githubusercontent.com/gridaphobe/CRL/ET_2022_11/GetComponents
      chmod +x GetComponents
-     ./GetComponents --parallel --no-shallow https://bitbucket.org/eschnett/cactusamrex/raw/master/azure-pipelines/carpetx.th
+     ##./GetComponents --parallel --no-shallow https://bitbucket.org/eschnett/cactusamrex/raw/master/azure-pipelines/carpetx.th
+     ./GetComponents --parallel --no-shallow https://raw.githubusercontent.com/jaykalinani/AsterX/main/Docs/thornlist/asterx.th
      cd Cactus
      ./simfactory/bin/sim setup-silent
      ```
@@ -100,6 +101,7 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      basedir       = /home/lorenzo/Simulations
      sourcebasedir = /home/lorenzo/ET_2022_11_CarpetX_CPU
      ```
+     **NOTE** The following is **NOT NEEDED ANYMORE**, as `TOVSolver` is now being checked out from the thornlist directly. However, it provides an example of how to check out a single thorn without checking out the whole repository where it is contained.
      If you want to checkout the TOV solver thorn from [Jay Kalinani's fork of CactusAMReX](https://bitbucket.org/jaykalinani/cactusamrex), do the following:
      ```
      cd repos
@@ -116,7 +118,7 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      ln -s ../../repos/TOVSolver/TOVSolver TOVSolver
      cd ../..
      ```
-     Then edit the `Cactus/thornlists/carpetx.th` to compile the thorn
+     Then edit the `Cactus/thornlists/asterx.th` to compile the thorn
      ```
      # Private thorns
      !TARGET   = $ARR
@@ -126,8 +128,9 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      ```
      Build
      ```
-     ./simfactory/bin/sim build ET_2022_11_CarpetX_CPU -j8 --optionlist /usr/carpetx-spack/local-cpu.cfg --thornlist thornlists/carpetx.th
+     ./simfactory/bin/sim build ET_2022_11_CarpetX_CPU -j8 --optionlist /usr/carpetx-spack/local-cpu.cfg --thornlist thornlists/asterx.th
      ```
+     `PETSc` may not be available. In this case, comment out `CarpetX::PDESolvers` and `CarpetX::Poisson2` from the thornlist and try to recompile.
      There might be problems generating the git source tree for Cactus. In this case, do
      ```
      cd configs/ET_2022_11_CarpetX_CPU/configjar.git
@@ -143,7 +146,8 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      cd ET_2022_11_CarpetX_GPU
      curl -kLO https://raw.githubusercontent.com/gridaphobe/CRL/ET_2022_11/GetComponents
      chmod +x GetComponents
-     ./GetComponents https://bitbucket.org/eschnett/cactusamrex/raw/master/azure-pipelines/carpetx.th
+     ##./GetComponents --parallel --no-shallow https://bitbucket.org/eschnett/cactusamrex/raw/master/azure-pipelines/carpetx.th
+     ./GetComponents --parallel --no-shallow https://raw.githubusercontent.com/jaykalinani/AsterX/main/Docs/thornlist/asterx.th
      cd Cactus
      ./simfactory/bin/sim setup-silent
      ```
@@ -156,6 +160,7 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      basedir       = /home/lorenzo/Simulations
      sourcebasedir = /home/lorenzo/ET_2022_11_CarpetX_GPU
      ```
+     **NOTE** The following is **NOT NEEDED ANYMORE**, as `TOVSolver` is now being checked out from the thornlist directly. However, it provides an example of how to check out a single thorn without checking out the whole repository where it is contained.
      If you want to checkout the TOV solver thorn from [Jay Kalinani's fork of CactusAMReX](https://bitbucket.org/jaykalinani/cactusamrex), do the following:
      ```
      cd repos
@@ -172,7 +177,7 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      ln -s ../../repos/TOVSolver/TOVSolver TOVSolver
      cd ../..
      ```
-     Then edit the `Cactus/thornlists/carpetx.th` to compile the thorn
+     Then edit the `Cactus/thornlists/asterx.th` to compile the thorn
      ```
      # Private thorns
      !TARGET   = $ARR
@@ -182,8 +187,9 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      ```
      Build
      ```
-     ./simfactory/bin/sim build ET_2022_11_CarpetX_GPU -j8 --optionlist /usr/carpetx-spack/local-gpu.cfg --thornlist thornlists/carpetx.th
+     ./simfactory/bin/sim build ET_2022_11_CarpetX_GPU -j8 --optionlist /usr/carpetx-spack/local-gpu.cfg --thornlist thornlists/asterx.th
      ```
+     `PETSc` may not be available. In this case, comment out `CarpetX::PDESolvers` and `CarpetX::Poisson2` from the thornlist and try to recompile.
      There might be problems generating the git source tree for Cactus. In this case, do
      ```
      cd configs/ET_2022_11_CarpetX_GPU/configjar.git
