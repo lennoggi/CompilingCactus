@@ -131,7 +131,23 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      ```
      ./simfactory/bin/sim build ET_2022_11_CarpetX_CPU -j8 --optionlist /usr/carpetx-spack/local-cpu.cfg --thornlist thornlists/asterx.th
      ```
-     `PETSc` may not be available. In this case, comment out `CarpetX::PDESolvers` and `CarpetX::Poisson2` from the thornlist and try to recompile.
+     `PETSc` may not be available. In this case, comment out
+     ```
+     ##CarpetX::PDESolvers
+     ##CarpetX::Poisson2
+     ```
+     from the thornlist and try to recompile.
+
+     There might be an error like
+     ```
+     /usr/bin/ld: unrecognised option: -install_name
+     collect2: error: ld returned 1 exit status
+     ```
+     In this case, comment out
+     ```
+     ##ExternalLibraries::PAPI
+     ```
+     from the thornlist and try to recompile.
 
      There might be problems generating the git source tree for Cactus. In this case, do
      ```
@@ -192,7 +208,23 @@ See https://docs.docker.com/get-started for a thorough introduction to Docker. W
      ```
      ./simfactory/bin/sim build ET_2022_11_CarpetX_GPU -j8 --optionlist /usr/carpetx-spack/local-gpu.cfg --thornlist thornlists/asterx.th
      ```
-     `PETSc` may not be available. In this case, comment out `CarpetX::PDESolvers` and `CarpetX::Poisson2` from the thornlist and try to recompile.
+     `PETSc` may not be available. In this case, comment out
+     ```
+     ##CarpetX::PDESolvers
+     ##CarpetX::Poisson2
+     ```
+     from the thornlist and try to recompile.
+
+     There might be an error like
+     ```
+     /usr/bin/ld: unrecognised option: -install_name
+     collect2: error: ld returned 1 exit status
+     ```
+     In this case, comment out
+     ```
+     ##ExternalLibraries::PAPI
+     ```
+     from the thornlist and try to recompile.
 
      There might be problems generating the git source tree for Cactus. In this case, do
      ```
