@@ -5,7 +5,7 @@
    ```
 2. Start Spack:
    ```
-   . ~/spack/share/spack/setup-env.sh
+   . </path/to/spack/directory>/spack/share/spack/setup-env.sh
    ```
    **NOTE:** this must be done every time you log into the machine
 3. Create and activate a Spack environment:
