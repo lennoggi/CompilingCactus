@@ -78,8 +78,8 @@
      spack install --add amrex@23.05+hdf5+openmp+particles+shared%gcc@13.1.0
      ```
      **IMPORTANT:** keep this list up to date by:
-     a. keeping the master `spack` directory up to date (`git pull` in there)
-     b. running `spack info <package>` for every package in the list before (re-)installing a given <package>
+     1. keeping the master `spack` directory up to date (`git pull` in there)
+     2. running `spack info <package>` for every package in the list before (re-)installing a given <package>
 
 7. Before logging out of the machine, good practice requires deactivating the environment:
    ```
