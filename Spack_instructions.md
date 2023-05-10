@@ -43,7 +43,11 @@
    ```
    and you can then run the above commands.
 
-
+6. Update the compiler list:
+   ```
+   spack compiler find
+   spack compilers
+   ```
 
 
 
