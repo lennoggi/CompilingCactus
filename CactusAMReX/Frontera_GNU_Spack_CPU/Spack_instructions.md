@@ -77,9 +77,10 @@
      spack install --add petsc@3.19.1+fftw+hwloc+openmp%gcc@13.1.0
      spack install --add amrex@23.05+hdf5+openmp+particles+shared%gcc@13.1.0
      ```
-     **IMPORTANT:** keep this list up to date by:
+     **IMPORTANT**
+     Keep this list up to date by:
      1. keeping the master `spack` directory up to date (`git pull` in there)
-     2. running `spack info <package>` for every package in the list before (re-)installing a given <package>
+     2. running `spack info <package>` for every package in the list before (re-)installing a given `<package>`
 
 7. Before logging out of the machine, good practice requires deactivating the environment:
    ```
