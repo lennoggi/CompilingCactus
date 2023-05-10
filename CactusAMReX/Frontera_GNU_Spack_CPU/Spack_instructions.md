@@ -5,10 +5,15 @@
    cd $WORK
    git clone -c feature.manyFiles=true git@github.com:spack/spack.git
    ```
+   **NOTE:** if you already cloned Spack and want to update the package list and info (`spack info <package>`), then update the `spack` directory:
+   ```
+   cd spack
+   git pull
+   ```
 
 2. Start Spack:
    ```
-   . /spack/share/spack/setup-env.sh
+   . spack/share/spack/setup-env.sh
    ```
    **NOTE:** this must be done every time you log into the machine
 
@@ -48,40 +53,30 @@
      spack compilers
      ```
 
-6. For all packages you want to install, check the available versions and options to be enabled/disabled:
+7. Install all the needed packages
+   - Make sure your package list is up to date (see 1):
+     ```
+     cd <path/to/spack/directory>/spack
+     git pull
+     ```
+   - For all packages you want to install, check the available versions and options to be enabled/disabled:
+     ```
+     spack info <package>
+     ```
+   - Add and install the packages:
    ```
-   spack info <package>
+   spack install --add zlib@1.2.13%gcc@13.1.0
+   spack install --add yaml-cpp@0.7.0%gcc@13.1.0
+   spack install --add nsimd@3.0.1%gcc@13.1.0
+   spack install --add hdf5@1.14.0+cxx+fortran+hl+mpi+threadsafe%gcc@13.1.0
+   spack install --add fftw@3.3.10+openmp+pfft_patches%gcc@13.1.0
+   spack install --add silo@4.10.2%gcc@13.1.0
+   spack install --add adios2@2.9.0+hdf5+pic+python+shared%gcc@13.1.0
+   spack install --add openpmd-api@0.15.1+python%gcc@13.1.0
+   spack install --add ssht@1.5.2%gcc@13.1.0
+   spack install --add petsc@3.19.1+fftw+hwloc+openmp%gcc@13.1.0
+   spack install --add amrex@23.05+hdf5+openmp+particles+shared%gcc@13.1.0
    ```
-   **NOTE:** `spack versions <package> only lists the available versions (checksummed and not checksummed)
-
-7. Install all the needed packages:
-   ```
-   spack install --add fftw@3.3.10+openmp+pfft_patches
-   spack install --add hdf5@1.14.0+cxx+fortran+hl+ipo+mpi+threadsafe%gcc@13.1.0
-   spack install --add amrex@23.05+hdf5+openmp+particles%gcc@13.1.0
-   ```
-
-
-
-# FIXME
-6. Add any packages you want to install to `</path/to/spack/directory>/spack/var/spack/environments/<my_environment>/spack.yaml` (see e.g. `CompilingCactus/cactusAMReX/Frontera_GNU_Spack_CPU/spack.yaml` for an example)
-
-7. Build all packages inside the environment
-   ```
-   spack install
-   ```
-   **NOTE:** for fresh installations, this will first *concretize* all packages. If you update `spack.yaml` after the first installation and you want all packages to be reconcretized before attempting another installation, run:
-   ```
-   spack concretize --force --fresh
-   spack install
-   ```
-
-8. Check that everything went fine. For example, if `gcc@13.1.0` was supposed to be installed and you want to use it, type
-   ```
-   spack load `gcc@13.1.0`
-   which gcc
-   ```
-   and make sure this gives the expected answer.
 
 7. Before logging out of the machine, good practice requires deactivating the environment:
    ```

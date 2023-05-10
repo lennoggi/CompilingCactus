@@ -1,0 +1,79 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  compilers:
+    - compiler:
+        spec: gcc@13.1.0
+        paths:
+          cc: /work2/07825/lennoggi/frontera/spack/var/spack/environments/carpetx-cpu/.spack-env/view/bin/gcc
+          cxx: /work2/07825/lennoggi/frontera/spack/var/spack/environments/carpetx-cpu/.spack-env/view/bin/g++
+          f77: /work2/07825/lennoggi/frontera/spack/var/spack/environments/carpetx-cpu/.spack-env/view/bin/gfortran
+          fc: /work2/07825/lennoggi/frontera/spack/var/spack/environments/carpetx-cpu/.spack-env/view/bin/gfortran
+        flags: {}
+        operating_system: centos7
+        target: x86_64
+        modules: []
+        environment: {}
+        extra_rpaths: []
+  definitions:
+  - packages:
+    - ##adios2@2.9.0
+    - amrex@23.05~fortran+hdf5+openmp+particles
+    - ##fftw@3.3.10+mpi+openmp
+    - ##hdf5@1.14.0+cxx+fortran+hl+mpi+threadsafe
+    - hwloc@1.11.12
+    - ##nsimd@3.0.1
+    - ##openpmd-api@0.15.1
+    - petsc@3.18+fftw+hwloc+openmp
+    - ##silo@4.11~fortran~pic~shared
+    - ##ssht@1.5.1
+    - ##yaml-cpp@0.7.0
+    - ##zlib@1.2.13
+  packages:
+    cmake:
+      buildable: false
+      externals:
+      - spec: cmake@3.24.2
+        prefix: /opt/apps/cmake/3.24.2
+    fftw:
+      buildable: false
+      externals:
+      - spec: fftw@3.3.10
+        prefix: /opt/apps/intel19/impi19_0/fftw3/3.3.10
+    hwloc:
+      buildable: false
+      externals:
+      - spec: hwloc@1.11.12
+        prefix: /opt/apps/hwloc/1.11.12
+    intel-mkl:
+      buildable: false
+      externals:
+      - spec: intel-mkl@19.1.1
+        prefix: /opt/intel/compilers_and_libraries_2020.1.217/linux/mkl
+    intel-mpi:
+      buildable: false
+      externals:
+      - spec: intel-mpi@19.0.9
+        prefix: /opt/intel/compilers_and_libraries_2020.4.304/linux/mpi
+    libfabric:
+      buildable: false
+      externals:
+      - spec: libfabric@19.0.9
+        prefix: /opt/intel/compilers_and_libraries_2020.4.304/linux/mpi/intel64/libfabric/lib
+    mpi:
+      buildable: false
+    petsc:
+      buildable: false
+      externals:
+      - spec: petsc@3.18
+        prefix: /home1/apps/intel19/impi19_0/petsc/3.18
+  specs:
+  - matrix:
+    - [$%compilers]
+    - [$packages]
+  concretizer:
+    reuse: false
+    unify: true
+  view: true
