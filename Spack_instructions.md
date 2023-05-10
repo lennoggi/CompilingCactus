@@ -17,7 +17,7 @@
    spacktivate -p <my_environment>
    ```
 
-4. Find all compilers available on the machine:
+4. Find all compilers available on the machine and add them to `</path/to/spack/directory>/spack/var/spack/environments/<my_environment>/spack.yaml`:
    ```
    spack compiler find
    ```
