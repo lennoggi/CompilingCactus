@@ -26,11 +26,11 @@
    spack concretize --force --fresh
    spack install
    ```
-6. Check that everything went through by e.g. typing
+6. Check that everything went fine. For example, if `gcc` was supposed to be installed, type
    ```
    which gcc
    ```
-   and make sure the binary is located in the place dictated by `spack.yaml`
+   and make sure the binary is located in the place dictated by `spack.yaml`.
 7. Before logging out of the machine, good practice requires deactivating the environment:
    ```
    despacktivate
