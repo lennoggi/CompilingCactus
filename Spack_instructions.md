@@ -1,7 +1,8 @@
 # Setting up a Spack environment
 
-1. Clone Spack:
+1. Clone Spack *in the same filesystem where `$HOME` is*, e.g. in your home:
    ```
+   cd
    git clone -c feature.manyFiles=true git@github.com:spack/spack.git
    ```
 
@@ -29,7 +30,8 @@
 5. *If desired* (e.g. when installing CarpetX, which requires a compiler supporting `-std=c++17`), install some other compiler. For the specific case of `gcc@13.1.0` on Frontera, use:
    ```
    spack versions gcc                   # e.g. the latest safe version is 13.1.0
-   spack install gcc@13.1.0 %gcc@4.8.5  # gcc@8.3.0 does not work on Frontera
+   spack add gcc@13.1.0 %gcc@4.8.5      # gcc@8.3.0 does not work on Frontera
+   spack install gcc@13.1.0 %gcc@4.8.5
    ```
    and add the new compiler to `</path/to/spack/directory>/spack/var/spack/environments/<my_environment>/spack.yaml`:
    ```
