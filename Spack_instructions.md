@@ -29,7 +29,7 @@
 
 5. *If desired* (e.g. when installing CarpetX, which requires a compiler supporting `-std=c++17`), install some other compiler. For the specific case of `gcc@13.1.0` on Frontera, use:
    ```
-   spack versions gcc                   # e.g. the latest safe version is 13.1.0
+   spack versions gcc                  # e.g. the latest safe version is 13.1.0
    spack add gcc@13.1.0%gcc@4.8.5      # The new compiler must be added as a spec in spack.yaml first
    spack install gcc@13.1.0%gcc@4.8.5  # gcc@8.3.0 does not work on Frontera
    ```
