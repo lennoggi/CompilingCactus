@@ -31,6 +31,11 @@
    spack compiler find
    spack compilers
    ```
+   **NOTE:** if the installation produces a memory error, consider performing it on a compute node. For example, on Frontera, you can request an interactive session like this:
+   ```
+   idev -m 120 -A <my_allocation>
+   ```
+   and you can then run the above commands.
 
 5. Create and activate a Spack environment:
    ```
