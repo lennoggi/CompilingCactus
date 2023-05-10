@@ -64,19 +64,22 @@
      spack info <package>
      ```
    - Add and install the needed packages (consider using again an interactive session):
-   ```
-   spack install --add zlib@1.2.13%gcc@13.1.0
-   spack install --add yaml-cpp@0.7.0%gcc@13.1.0
-   spack install --add nsimd@3.0.1%gcc@13.1.0
-   spack install --add hdf5@1.14.0+cxx+fortran+hl+mpi+threadsafe%gcc@13.1.0
-   spack install --add fftw@3.3.10+openmp+pfft_patches%gcc@13.1.0
-   spack install --add silo@4.10.2%gcc@13.1.0
-   spack install --add adios2@2.9.0+hdf5+pic+python+shared%gcc@13.1.0
-   spack install --add openpmd-api@0.15.1+python%gcc@13.1.0
-   spack install --add ssht@1.5.2%gcc@13.1.0
-   spack install --add petsc@3.19.1+fftw+hwloc+openmp%gcc@13.1.0
-   spack install --add amrex@23.05+hdf5+openmp+particles+shared%gcc@13.1.0
-   ```
+     ```
+     spack install --add zlib@1.2.13%gcc@13.1.0
+     spack install --add yaml-cpp@0.7.0%gcc@13.1.0
+     spack install --add nsimd@3.0.1%gcc@13.1.0
+     spack install --add hdf5@1.14.0+cxx+fortran+hl+mpi+threadsafe%gcc@13.1.0
+     spack install --add fftw@3.3.10+openmp+pfft_patches%gcc@13.1.0
+     spack install --add silo@4.10.2%gcc@13.1.0
+     spack install --add adios2@2.9.0+hdf5+pic+python+shared%gcc@13.1.0
+     spack install --add openpmd-api@0.15.1+python%gcc@13.1.0
+     spack install --add ssht@1.5.2%gcc@13.1.0
+     spack install --add petsc@3.19.1+fftw+hwloc+openmp%gcc@13.1.0
+     spack install --add amrex@23.05+hdf5+openmp+particles+shared%gcc@13.1.0
+     ```
+     **IMPORTANT:** keep this list up to date by:
+     a. keeping the master `spack` directory up to date (`git pull` in there)
+     b. running `spack info <package>` for every package in the list before (re-)installing a given <package>
 
 7. Before logging out of the machine, good practice requires deactivating the environment:
    ```
