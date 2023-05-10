@@ -41,6 +41,7 @@
      ```
      spack install --add gcc@13.1.0%gcc@4.8.5  # gcc@8.3.0 does not work
      ```
+   - Exit the interactive session (`ctrl+d`)
    - Update the compiler list:
      ```
      spack compiler find
