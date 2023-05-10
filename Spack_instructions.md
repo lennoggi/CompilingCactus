@@ -1,6 +1,6 @@
-# Setting up a Spack environment
+# Setting up a Spack environment for CarpetX on Frontera
 
-1. Clone Spack:
+1. Clone Spack under `$WORK` (`$HOME` has limited space and is slower):
    ```
    cd $WORK
    git clone -c feature.manyFiles=true git@github.com:spack/spack.git
@@ -8,17 +8,17 @@
 
 2. Start Spack:
    ```
-   . </path/to/spack/directory>/spack/share/spack/setup-env.sh
+   . /spack/share/spack/setup-env.sh
    ```
    **NOTE:** this must be done every time you log into the machine
 
 3. Create and activate a Spack environment:
    ```
-   spack env create <my_environment>
-   spacktivate <my_environment> -p
+   spack env create carpetx-cpu
+   spacktivate carpetx-cpu -p
    ```
 
-4. Find all compilers available on the machine and add them to `</path/to/spack/directory>/spack/var/spack/environments/<my_environment>/spack.yaml`:
+4. Find all compilers available on the machine and add them to `$WORK/spack/var/spack/environments/carpetx-cpu/spack.yaml`:
    ```
    spack compiler find
    ```
@@ -27,26 +27,37 @@
    spack compilers
    ```
 
-5. *If desired* (e.g. when installing CarpetX, which requires a compiler supporting `-std=c++17`), install some other compiler. For the specific case of `gcc@13.1.0` on Frontera, use:
-   ```
-   spack versions gcc                  # e.g. the latest safe version is 13.1.0
-   spack add gcc@13.1.0%gcc@4.8.5      # The new compiler must be added as a spec in spack.yaml first
-   spack install gcc@13.1.0%gcc@4.8.5  # gcc@8.3.0 does not work on Frontera
-   ```
-   **NOTE:** you can combine adding and installing the compiler with
-   ```
-   spack install --add gcc@13.1.0%gcc@4.8.5
-   ```
-   **NOTE:** if the installation produces a memory error, consider performing it on a compute node. For example, on Frontera, you can request an interactive session like this:
-   ```
-   idev -m 120 -A <my_allocation>
-   ```
-   and you can then run the above commands.
+5. CarpetX requires a compiler supporting `-std=c++17`, so install the most recent version of `gcc`:
+   - Request an interactive session to avoid running out of memory during the installation:
+     ```
+     idev -m 120 -A <my_allocation>
+     ```
+   - See if there are any options you want to enable/disable for the new compiler:
+     ```
+     spack info gcc
+     ```
+     or use `spack versions gcc` to just list the available versions
+   - Install the most recent version of `gcc` (e.g. `gcc@13.1.0`):
+     ```
+     spack install --add gcc@13.1.0%gcc@4.8.5  # gcc@8.3.0 does not work
+     ```
+   - Update the compiler list:
+     ```
+     spack compiler find
+     spack compilers
+     ```
 
-6. Update the compiler list:
+6. For all packages you want to install, check the available versions and options to be enabled/disabled:
    ```
-   spack compiler find
-   spack compilers
+   spack info <package>
+   ```
+   **NOTE:** `spack versions <package> only lists the available versions (checksummed and not checksummed)
+
+7. Install all the needed packages:
+   ```
+   spack install --add fftw@3.3.10+openmp+pfft_patches
+   spack install --add hdf5@1.14.0+cxx+fortran+hl+ipo+mpi+threadsafe%gcc@13.1.0
+   spack install --add amrex@23.05+hdf5+openmp+particles%gcc@13.1.0
    ```
 
 
