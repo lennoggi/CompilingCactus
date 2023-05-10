@@ -78,6 +78,7 @@
      spack install --add amrex@23.05+hdf5+openmp+particles+shared%gcc@13.1.0
      ```
      **IMPORTANT**
+
      Keep this list up to date by:
      1. keeping the master `spack` directory up to date (`git pull` in there)
      2. running `spack info <package>` for every package in the list before (re-)installing a given `<package>`
