@@ -63,7 +63,7 @@
      ```
      spack info <package>
      ```
-   - Add and install the packages:
+   - Add and install the needed packages (consider using again an interactive session):
    ```
    spack install --add zlib@1.2.13%gcc@13.1.0
    spack install --add yaml-cpp@0.7.0%gcc@13.1.0
