@@ -70,7 +70,7 @@
      spack install --add nsimd@3.0.1%gcc@13.1.0
      spack install --add hdf5@1.14.0+cxx+fortran+hl+mpi+threadsafe%gcc@13.1.0
      spack install --add fftw@3.3.10+openmp+pfft_patches%gcc@13.1.0
-     spack install --add silo@4.10.2%gcc@13.1.0
+     spack install --add silo@4.11%gcc@13.1.0
      spack install --add adios2@2.9.0+hdf5+pic+python+shared%gcc@13.1.0
      spack install --add openpmd-api@0.15.1+python%gcc@13.1.0
      spack install --add ssht@1.5.2%gcc@13.1.0
