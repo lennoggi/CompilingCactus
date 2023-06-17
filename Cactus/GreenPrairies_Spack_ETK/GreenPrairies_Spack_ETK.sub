@@ -1,0 +1,18 @@
+#!/bin/bash
+#PBS -A @ALLOCATION@
+#PBS -q @QUEUE@
+#PBS -r n
+#PBS -l walltime=@WALLTIME@
+#PBS -l select=@NODES@:ncpus=@PPN@:mpiprocs=@NODE_PROCS@:ompthreads=@NUM_THREADS@
+#PBS @('@CHAINED_JOB_ID@' != '' ? '-W depend=afterany:@CHAINED_JOB_ID@' : '')@
+#PBS -N @SHORT_SIMULATION_NAME@
+#PBS -o @RUNDIR@/@SIMULATION_NAME@.out
+#PBS -e @RUNDIR@/@SIMULATION_NAME@.err
+#PBS -M @EMAIL@
+#PBS -m abe
+
+. /home/spack/spack/share/spack/setup-env.sh
+spack env activate etk
+
+cd @SOURCEDIR@
+@SIMFACTORY@ run @SIMULATION_NAME@ --basedir=@BASEDIR@ --machine=@MACHINE@ --restart-id=@RESTART_ID@ @FROM_RESTART_COMMAND@
