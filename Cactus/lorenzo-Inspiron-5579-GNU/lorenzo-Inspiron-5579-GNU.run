@@ -30,7 +30,7 @@ if [ ${CACTUS_NUM_PROCS} = 1 ]; then
    	  gdb --args @EXECUTABLE@ -L 1 @PARFILE@
     fi
 else
-	mpirun -np @NUM_PROCS@ @EXECUTABLE@ -L 1 @PARFILE@
+	mpirun.openmpi -np @NUM_PROCS@ @EXECUTABLE@ -L 1 @PARFILE@
 fi
 
 echo "Stopping:"
