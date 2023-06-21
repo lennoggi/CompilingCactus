@@ -81,9 +81,10 @@ F90_WARN_FLAGS = -Wall
 
 
 
+ADIOS2_DIR      = /work2/07825/lennoggi/frontera/CarpetX_view/gcc/view
 ADIOS2_INC_DIRS = /work2/07825/lennoggi/frontera/CarpetX_view/gcc/view/include
 ADIOS2_LIB_DIRS = /work2/07825/lennoggi/frontera/CarpetX_view/gcc/view/lib64/
-##ADIOS2_LIBS     = adios2_cxx11 adios2_cxx11_mpi
+ADIOS2_LIBS     = adios2_cxx11_mpi adios2_cxx11
 
 AMREX_DIR = /work2/07825/lennoggi/frontera/CarpetX_view/gcc/view
 
@@ -124,7 +125,8 @@ LAPACK_LIBS = -mkl
 
 MPI_DIR = ${TACC_IMPI_DIR}/intel64
 
-NSIMD_INC_DIRS = /work2/07825/lennoggi/frontera/CarpetX_view/gcc/view/include/nsimd
+NSIMD_DIR      = /work2/07825/lennoggi/frontera/CarpetX_view/gcc/view
+NSIMD_INC_DIRS = /work2/07825/lennoggi/frontera/CarpetX_view/gcc/view/include
 NSIMD_LIB_DIRS = /work2/07825/lennoggi/frontera/CarpetX_view/gcc/view/lib
 NSIMD_LIBS     = nsimd_AVX512_SKYLAKE
 
@@ -141,8 +143,7 @@ OPENSSL_DIR = /usr/lib64
 
 PAPI_DIR = ${TACC_PAPI_DIR}
 
-PETSC_DIR       = ${TACC_PETSC_DIR}
-PETSC_ARCH_LIBS = clx
+##PETSC_DIR = ${TACC_PETSC_DIR}
 
 PTHREADS_DIR = NO_BUILD
 

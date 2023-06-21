@@ -27,10 +27,10 @@ if [ ${CACTUS_NUM_PROCS} = 1 ]; then
     if [ @RUNDEBUG@ -eq 0 ]; then
    	  @EXECUTABLE@ -L 1 @PARFILE@
     else
-   	  gdb --args @EXECUTABLE@ -L 1 @PARFILE@
+   	  gdb --args @EXECUTABLE@ -L 1 -roe @PARFILE@
     fi
 else
-	mpirun.openmpi -np @NUM_PROCS@ @EXECUTABLE@ -L 1 @PARFILE@
+	mpirun.openmpi -np @NUM_PROCS@ @EXECUTABLE@ -L 1 -roe @PARFILE@
 fi
 
 echo "Stopping:"

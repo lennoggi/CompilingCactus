@@ -35,7 +35,7 @@ echo ${SLURM_NODELIST} > NODES
 echo "Starting:"
 ##echo "FI_PROVIDER: "$FI_PROVIDER
 export CACTUS_STARTTIME=$(date +%s)
-time ibrun -n @NUM_PROCS@ @EXECUTABLE@ -L 1 @PARFILE@
+time ibrun -n @NUM_PROCS@ @EXECUTABLE@ -L 1 -roe @PARFILE@
 
 echo "Stopping:"
 date

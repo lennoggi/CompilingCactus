@@ -31,7 +31,7 @@ cat ${PBS_NODEFILE} > SIMFACTORY/NODES
 echo "Starting:"
 ##echo "FI_PROVIDER: "$FI_PROVIDER
 export CACTUS_STARTTIME=$(date +%s)
-mpiexec @EXECUTABLE@ -L 1 @PARFILE@
+mpiexec @EXECUTABLE@ -L 1 -roe @PARFILE@
 
 echo "Stopping:"
 date

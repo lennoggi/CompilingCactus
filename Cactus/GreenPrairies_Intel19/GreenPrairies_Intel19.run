@@ -32,7 +32,7 @@ cat ${PBS_NODEFILE} > NODES
 echo "Starting:"
 ##echo "FI_PROVIDER: "$FI_PROVIDER
 export CACTUS_STARTTIME=$(date +%s)
-mpirun -machinefile ${PBS_NODEFILE} -np @NUM_PROCS@ @EXECUTABLE@ -L 1 @PARFILE@
+mpirun -machinefile ${PBS_NODEFILE} -np @NUM_PROCS@ @EXECUTABLE@ -L 1 -roe @PARFILE@
 
 echo "Stopping:"
 date
