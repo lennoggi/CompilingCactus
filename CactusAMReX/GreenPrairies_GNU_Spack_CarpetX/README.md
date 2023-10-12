@@ -5,3 +5,5 @@ spack env activate carpetx
 ```
 
 TODO: there's a `carpetx_gcc_13` environment too, build Simfactory files for that as well
+
+Edit `defs.local.ini` with your favorite settings
