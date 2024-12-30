@@ -1,0 +1,7 @@
+
+Currently Loaded Modules:
+  1) ucc/1.3.0    3) xalt/3.1   5) cmake/3.29.5   7) gcc/14.2.0   9) openmpi/5.0.5  11) boost/1.86.0  13) gsl/2.8
+  2) ucx/1.17.0   4) TACC       6) papi/7.1.0     8) nvpl/24.7   10) hdf5/1.14.4    12) fftw3/3.3.10  14) zlib/1.3.1
+
+ 
+
